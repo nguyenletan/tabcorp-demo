@@ -1,0 +1,19 @@
+<div class="container">
+  <section class="add-book">
+    <app-add-book (addBookHandler)="onAddBookHandler($event)"></app-add-book>
+  </section>
+  <hr />
+  <section class="book-list">
+    <h2>Books List <strong>({{ books.length }})</strong></h2>
+    <ol>
+      <li *ngFor="let book of books" [id]="book.id">
+        <div class="terminal-card">
+          <header>Title: {{ book.title }} ({{ book.category }})</header>
+          <div>
+            <span class="description"><strong>Description:</strong> {{ book.description }}</span>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </section>
+</div>

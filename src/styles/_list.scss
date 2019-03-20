@@ -1,0 +1,9 @@
+.book-list {
+  li {
+    &::before {
+      content: "";
+    }
+    margin-bottom: 1rem;
+    padding-left: 0;
+  }
+}
