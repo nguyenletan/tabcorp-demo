@@ -31,7 +31,7 @@ describe('AddBookComponent', () => {
   it('Book Title should be required', () => {
       const inputTexts = fixture.debugElement.queryAll(By.css('input'));
       inputTexts.forEach((inputText: DebugElement, index) => {
-        console.log(inputText);
+        // console.log(inputText);
         expect(inputText).toBeTruthy();
         // expect(inputText.nativeElement.innerHTML).toContain()
         // expect(inputText.nativeElement.innerHTML).toContain(favoriteMoviesToUse[index].title);
