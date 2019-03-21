@@ -16,7 +16,7 @@
         [(ngModel)]="book.title"
         #title="ngModel"
       />
-      <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+      <div [hidden]="(!bookForm.submitted && title.pristine) || title.valid" class="alert alert-danger">
         Title is required
       </div>
     </div>
@@ -26,7 +26,8 @@
         id="category"
         name="category"
         [(ngModel)]="book.category"
-        required>
+        required
+      >
         <option [value]="category.Drama">Drama</option>
         <option [value]="category.Comedy">Comedy</option>
         <option [value]="category.Sport">Sport</option>
@@ -46,7 +47,10 @@
         [(ngModel)]="book.description"
         #description="ngModel"
       ></textarea>
-      <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+      <div
+        [hidden]="(!bookForm.submitted && description.pristine) || description.valid"
+        class="alert alert-danger"
+      >
         Description is required
       </div>
     </div>
@@ -56,5 +60,3 @@
     </div>
   </fieldset>
 </form>
-
-

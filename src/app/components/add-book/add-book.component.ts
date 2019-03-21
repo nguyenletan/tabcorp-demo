@@ -24,7 +24,8 @@ export class AddBookComponent implements OnInit {
   }
 
   onSubmit(bookForm: NgForm) {
-    console.log(this.book);
+    // console.log(this.book);
+    // console.log(bookForm.submitted);
     if (bookForm.valid) {
       this.addBookHandler.emit(this.book);
       bookForm.resetForm(new Book());
