@@ -8,7 +8,7 @@
     <ol>
       <li *ngFor="let book of books" [id]="book.id">
         <div class="terminal-card">
-          <header>Title: {{ book.title }} ({{ book.category }})</header>
+          <header class="book-title">Title: {{ book.title }} ({{ book.category }})</header>
           <div>
             <span class="description"><strong>Description:</strong> {{ book.description }}</span>
           </div>
