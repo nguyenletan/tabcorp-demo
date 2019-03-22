@@ -4,7 +4,7 @@
   </section>
   <hr />
   <section class="book-list">
-    <h2>Books List <strong>({{ books.length }})</strong></h2>
+    <h2>Books List <strong class="number-of-books">({{ books.length }})</strong></h2>
     <ol>
       <li *ngFor="let book of books" [id]="book.id">
         <div class="terminal-card">
