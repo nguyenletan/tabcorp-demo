@@ -44,12 +44,6 @@ describe('BooksComponent', () => {
 
     expect(header).toBeTruthy();
     expect(header.nativeElement.innerHTML).toEqual(`Title: ${initBook.title} (${initBook.category})`);
-   /* headers.forEach((inputText: DebugElement, index) => {
-      console.log(headers);
-      expect(inputText).toBeTruthy();
-      // expect(inputText.nativeElement.innerHTML).toContain()
-      // expect(inputText.nativeElement.innerHTML).toContain(favoriteMoviesToUse[index].title);
-    });*/
   });
 
   it('Book Description should be create', () => {

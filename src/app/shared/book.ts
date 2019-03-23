@@ -5,9 +5,9 @@ export class Book {
   public title: string;
   public description: string;
   public category: BookCategory;
-  constructor() {
-    this.id = 0;
-    this.title = '';
+  constructor(id= 0, title= '', description= '', category= BookCategory.Comedy) {
+    this.id = id;
+    this.title = title;
     this.description = '';
     this.category = BookCategory.Drama;
   }
