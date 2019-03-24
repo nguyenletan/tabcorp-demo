@@ -42,7 +42,7 @@ describe('AddBookComponent', () => {
     expect(bookDescription.attributes.required).not.toBeUndefined();
   });
 
-  it('Should Add Book when submitted (triggerEventHandler)', () => {
+  it('Should raise FormSubmit event when clicked on Add button (triggerEventHandler)', () => {
     const newBook = new Book();
     const ngFakeForm = new NgForm(null,  null);
     spyOn(component, 'onSubmit');
@@ -52,6 +52,5 @@ describe('AddBookComponent', () => {
     fixture.detectChanges();
 
     expect(component.onSubmit).toHaveBeenCalled();
-    // expect(component.addBookHandler.emit).toHaveBeenCalled();
   });
 });
