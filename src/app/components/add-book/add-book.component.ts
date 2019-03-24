@@ -1,7 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {NgForm} from '@angular/forms';
-import {Book} from '../../shared/book';
-import {BookCategory} from '../../shared/book-category.enum';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Book } from '../../shared/book';
+import { BookCategory } from '../../shared/book-category.enum';
 import '../../shared/book-category.enum';
 
 @Component({
@@ -14,8 +14,7 @@ export class AddBookComponent implements OnInit {
   @Output() addBookHandler: EventEmitter<Book> = new EventEmitter();
   book: Book;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
     if (this.book === undefined) {
@@ -24,8 +23,6 @@ export class AddBookComponent implements OnInit {
   }
 
   onSubmit(bookForm: NgForm) {
-    // console.log(this.book);
-    // console.log(bookForm.submitted);
     if (bookForm.valid) {
       this.addBookHandler.emit(this.book);
       bookForm.resetForm(new Book());

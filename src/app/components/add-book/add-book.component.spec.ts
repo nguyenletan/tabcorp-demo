@@ -1,13 +1,15 @@
 import { DebugElement } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, NgForm} from '@angular/forms';
 import { By } from '@angular/platform-browser';
+import {Book} from '../../shared/book';
 
 import { AddBookComponent } from './add-book.component';
 
 describe('AddBookComponent', () => {
   let component: AddBookComponent;
   let fixture: ComponentFixture<AddBookComponent>;
+  let addBookForm: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -19,10 +21,11 @@ describe('AddBookComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AddBookComponent);
     component = fixture.componentInstance;
+    addBookForm = fixture.debugElement.query(By.css('form'));
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Should create', () => {
     expect(component).toBeTruthy();
   });
 
@@ -37,5 +40,18 @@ describe('AddBookComponent', () => {
     const bookDescription = fixture.debugElement.query(By.css('#description'));
     expect(bookDescription).toBeTruthy();
     expect(bookDescription.attributes.required).not.toBeUndefined();
+  });
+
+  it('Should Add Book when submitted (triggerEventHandler)', () => {
+    const newBook = new Book();
+    const ngFakeForm = new NgForm(null,  null);
+    spyOn(component, 'onSubmit');
+    spyOn(component.addBookHandler, 'emit');
+
+    addBookForm.triggerEventHandler('submit', ngFakeForm);
+    fixture.detectChanges();
+
+    expect(component.onSubmit).toHaveBeenCalled();
+    // expect(component.addBookHandler.emit).toHaveBeenCalled();
   });
 });
